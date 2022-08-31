@@ -18,7 +18,7 @@ for (int rowNumber = 0; rowNumber < matrix.GetLength(0); rowNumber++)
     Console.WriteLine();
 }
 
-Console.Write("Введите индекс строки и колонки через пробел: ");
+Console.Write("Введите номер строки и колонки через пробел: ");
 string rowAndColumnString = Console.ReadLine();
 
 string[] rowAndColumnStringElements = rowAndColumnString.Split(' ');
@@ -27,16 +27,14 @@ if (rowAndColumnStringElements.Length != 2)
 {
     Console.WriteLine($"Ожидалось два значения через пробел, а вы ввели '{rowAndColumnString}'");
     return;
-}
-// Split создает массив из row & column, [0] элемент это значение,
-// которое ввели до пробела, а [1] элемент это значение, которое ввели после пробела.  
+} 
 int row = Convert.ToInt32(rowAndColumnStringElements[0]);
 int column = Convert.ToInt32(rowAndColumnStringElements[1]);
 
 if ((row < 0 || row >= matrix.GetLength(0)) || (column < 0 || column >= matrix.GetLength(1)))
 {
-    Console.WriteLine("Элемента с таким индексом в данной матрице не существует");
+    Console.WriteLine("Элемента с таким индексом в данном массиве не существует");
     return;
 }
 
-Console.WriteLine($"В матрице, в строке {row}, в колонке {column} находится значение: {matrix[row, column]}");
+Console.WriteLine($"В массиве в строке {row}, в колонке {column} находится число: {matrix[row, column]}");
